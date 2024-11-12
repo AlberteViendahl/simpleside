@@ -8,12 +8,24 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: "#C2D2F2",
-        lightblue: "#203359",
+        lightblue: "#C2D2F2",
+        background: "#203359",
         blackish: "#0A1626",
         lightgreen: "#79F297",
         darkgreen: "#60BF78",
         purple: "#9A82E0",
+      },
+      height: {
+        150: "150px",
+        250: "250px",
+        400: "400px",
+      },
+      width: {
+        250: "250px",
+        300: "300px",
+      },
+      borderRadius: {
+        15: "15px",
       },
     },
   },
