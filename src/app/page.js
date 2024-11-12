@@ -1,11 +1,11 @@
 import Buybnt from "@/components/Buybnt";
+import Card from "@/components/Card";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <div>
-      <h1>Hej cat</h1>
-      <Buybnt />
+    <div className="bg-background">
+      <Card />
     </div>
   );
 }
