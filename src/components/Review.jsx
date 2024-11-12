@@ -1,62 +1,47 @@
-import { FaRegStar } from "react-icons/fa";
+"use client";
 
-const Review = () => {
-  return (
-    <section className="text-lightblue">
-      <div className="flex m-5">
-        <h1>Reviews</h1>
-        <FaRegStar />
-        <FaRegStar />
-        <FaRegStar />
-        <FaRegStar />
-        <FaRegStar />
-      </div>
-      <div className="flex">
-        <ul className="flex m-5 gap-5">
-          <li>
-            <div className="flex">
-              <FaRegStar />
-              <FaRegStar />
-            </div>
-            <div>
-              <p className="leading-4 mt-2">
-                "Very satisfied!"
-                <span className="block mt-1">Scarlett Wright</span>
-              </p>
-            </div>
-          </li>
-          <li>
-            <div className="flex">
-              <FaRegStar />
-              <FaRegStar />
-              <FaRegStar />
-              <FaRegStar />
-              <FaRegStar />
-            </div>
-            <div>
-              <p className="leading-4 mt-2">
-                "Very satisfied!"
-                <span className="block mt-1">Scarlett Wright</span>
-              </p>
-            </div>
-          </li>
-          <li>
-            <div className="flex">
-              <FaRegStar />
-              <FaRegStar />
-              <FaRegStar />
-            </div>
-            <div>
-              <p className="leading-4 mt-2">
-                "Very satisfied!"
-                <span className="block mt-1">Scarlett Wright</span>
-              </p>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </section>
-  );
-};
+import { FaStar } from "react-icons/fa";
+import React, { useState, useEffect } from 'react';
 
-export default Review;
+const Reviews = () => {
+    const [reviews, setReviews] = useState([]);
+
+    useEffect(() => {
+        fetch('https://dummyjson.com/products')
+            .then(response => response.json())
+            .then(data => {
+                const reviewData = data.products.flatMap(product => 
+                    product.reviews.map(review => ({
+                        reviewerName: review.reviewerName,
+                        comment: review.comment,
+                        rating: review.rating,
+                    }))
+                );
+                setReviews(reviewData);
+            })
+    }, []);
+
+    const averageRating = reviews.slice(0, 3).reduce((acc, review) => acc + review.rating, 0) / Math.min(reviews.slice(0, 3).length, 3);
+
+    return (
+        <section className="text-lightblue">
+           {}
+                <div className="font-bold text-xl mb-4 m-5">
+                    <p>Reviews {averageRating.toFixed(1)}</p>
+                </div>
+            <div className="flex flex-row gap-5 m-5">
+
+                {}
+                {reviews.slice(0, 3).map((review, index) => (
+                    <div key={index} className="border-b pb-4">
+                        <p className="text-yellow-500">{review.rating}</p><FaStar />
+                        <p className="italic">"{review.comment}"</p>
+                        <h3 className="font-bold">{review.reviewerName}</h3>
+                    </div>
+                ))}
+            </div>
+        </section>
+    );
+}
+
+export default Reviews;
