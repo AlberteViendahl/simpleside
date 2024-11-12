@@ -1,11 +1,7 @@
-import Card from "./Card";
-
 const Singleview = () => {
   return (
-    <section className="grid grid-cols-4">
-      <Card />
-      <Card />
-      <Card />
+    <section>
+      <img className="h-400" src="/img/smil.png" alt="" />
     </section>
   );
 };
