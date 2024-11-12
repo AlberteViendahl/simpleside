@@ -1,8 +1,8 @@
 const Buybnt = () => {
   return (
     <div>
-      <button className="border-2 rounded-15 border-lightgreen bg-darkgreen pr-5 pl-5">
-        Buy Here
+      <button className=" rounded-15  bg-background text-lightblue pr-5 pl-5 hover:bg-lightgreen hover:text-black">
+        Læg I Kurv
       </button>
     </div>
   );
