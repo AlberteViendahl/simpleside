@@ -13,6 +13,7 @@ module.exports = {
         blackish: "#0A1626",
         lightgreen: "#79F297",
         darkgreen: "#60BF78",
+        purple: "#9A82E0",
       },
     },
   },
