@@ -10,9 +10,6 @@ const Cart = () => {
   return (
     <div
       className="bg-lightblue fixed top-16 right-0 p-4 w-1/4 shadow-lg mt-5 mr-5 rounded-15"
-      style={{
-        overflowY: "auto", // Tilføjer scrollbar, hvis indholdet overstiger maxHeight
-      }}
     >
       <h2 className="text-xl font-bold mb-4 text-background">Indkøbskurv</h2>
       <ul>

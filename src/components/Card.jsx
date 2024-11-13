@@ -17,20 +17,22 @@ const Card = ({ products, selectedTag }) => {
 
   return (
     <CartProvider>
-      <div className="grid grid-cols-3 w-75">
+      <div className="grid grid-cols-3 gap-5 w-75 pb-5 pl-5">
         {filteredProducts.map(product => (
           <div
             key={product.id}
-            className="bg-lightblue p-4 rounded-md shadow h-400 w-300 mt-5 ml-5 mb-10"
+            className="bg-lightblue p-4 rounded-md shadow h-410 w-300 mt-5 flex flex-col items-center text-center"
           >
             <Image
-              className="mb-15"
+              className="mb-4"
               src={product.thumbnail}
               width={250}
               height={350}
               alt={product.title}
             />
-            <Link href={`/sider/${product.id}`}>{product.title}</Link>
+            <Link href={`/sider/${product.id}`} className="font-bold text-lg mb-2">
+              {product.title}
+            </Link>
             <Buybnt product={product} />
           </div>
         ))}
