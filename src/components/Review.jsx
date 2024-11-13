@@ -24,7 +24,7 @@ const Reviews = () => {
     const averageRating = reviews.slice(0, 3).reduce((acc, review) => acc + review.rating, 0) / Math.min(reviews.slice(0, 3).length, 3);
 
     return (
-        <section className="text-lightblue">
+        <section className="text-background">
            {}
                 <div className="font-bold text-xl mb-4 m-5">
                     <p>Reviews {averageRating.toFixed(1)}</p>
