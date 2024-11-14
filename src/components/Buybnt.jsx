@@ -9,7 +9,7 @@ const Buybnt = ({ product }) => {
     <div>
       <button
         onClick={() => addToCart(product)}
-        className="rounded-15 bg-background text-lightblue pr-7 pl-7 p-2 hover:bg-lightgreen hover:text-black mt-5"
+        className="border-2 border-background rounded-15 bg-background text-lightblue pr-7 pl-7 p-2 hover:bg-lightblue hover:border-background hover:border-2 hover:text-black mt-5"
       >
         Læg I Kurv
       </button>
