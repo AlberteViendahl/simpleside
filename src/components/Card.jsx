@@ -6,6 +6,7 @@ import Buybnt from "./Buybnt";
 import Image from "next/image";
 import Link from "next/link";
 
+// Definerer Card-komponenten, der modtager "products" og "selectedTag" som props
 const Card = ({ products, selectedTag }) => {
   if (!products) {
     return <div></div>;
