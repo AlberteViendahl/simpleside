@@ -1,16 +1,22 @@
 "use client";
-// Cart.js
-import { useContext } from "react";
+// Kurv.js
+import { useContext, useEffect } from "react";
+import Link from "next/link";
 import { CartContext } from "./CartContext";
 
 const Cart = () => {
   const { cartItems } = useContext(CartContext);
   const totalPrice = cartItems.reduce((acc, item) => acc + item.price, 0);
 
+
+  const stringifiedCart = JSON.stringify(
+    cartItems.map((item) => {
+      return { id: item.id };
+    })
+  );
+
   return (
-    <div
-      className="bg-lightblue fixed top-16 right-0 p-4 w-1/4 shadow-lg mt-5 mr-5 rounded-15"
-    >
+    <div className="bg-lightblue fixed top-16 right-0 p-4 w-1/4 shadow-lg mt-5 mr-5 rounded-15">
       <h2 className="text-xl font-bold mb-4 text-background">Indkøbskurv</h2>
       <ul>
         {cartItems.map((item, index) => (
@@ -21,14 +27,13 @@ const Cart = () => {
         ))}
       </ul>
       <div className="border-t mt-4 pt-4">
-        <h3 className="font-bold text-background">Samlet pris: {totalPrice} kr</h3>
-        <button className="bg-background text-lightblue px-4 py-2 mt-4 rounded-15 hover:bg-purple">
-          Gå til betaling
-        </button>
+        <h3 className="font-bold text-background mb-5">
+          Samlet pris: {totalPrice} kr
+        </h3>
+        <Link href={`/payment?cart=${stringifiedCart}`} className="mt-5 border-2 border-background rounded-15 bg-background text-lightblue pr-7 pl-7 p-2 hover:bg-lightblue hover:border-background hover:border-2 hover:text-black">Gå til betaling</Link>
       </div>
     </div>
   );
 };
 
 export default Cart;
-
