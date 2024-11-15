@@ -10,7 +10,7 @@ const Kurv = () => {
 
   const stringifiedCart = JSON.stringify(
     cartItems.map((item) => {
-      return { id: item.id };
+      return { id: item.id, title: item.title, price: item.price };
     })
   );
 
