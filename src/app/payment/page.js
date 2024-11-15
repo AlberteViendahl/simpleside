@@ -2,6 +2,7 @@ const Betaling = async ({ searchParams }) => {
   const cart = (await searchParams).cart;
 
   console.log(cart);
+  
 
   const parsedCart = JSON.parse(cart);
   console.log(parsedCart);

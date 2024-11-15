@@ -17,7 +17,8 @@ const SingleView = ({ product }) => {
       <div className="bg-lightblue p-4 rounded-md shadow min-h-screen w-800 mt-5 mb-10">
         {/* Tilføjer en Tilbage-knap, der linker til forsiden */}
         <Link href="/" passHref>
-          <button className="bg-background text-lightblue px-4 py-2 rounded-15 mb-4 hover:bg-purple">
+          <button         className="border-2 border-background rounded-15 bg-background text-lightblue pr-7 pl-7 p-2 hover:bg-lightblue hover:border-background hover:border-2 hover:text-black mt-5"
+          >
             Tilbage
           </button>
         </Link>
@@ -36,7 +37,7 @@ const SingleView = ({ product }) => {
           </div>
           <Pics images={product.images} setChangePic={setChangePic} />
         </div>
-        <Reviews />
+        <Reviews reviewsdata={product} />
       </div>
     </section>
   );
