@@ -13,7 +13,7 @@ const Kurv = () => {
   };
 
   return (
-    <div className="bg-lightblue fixed top-16 right-0 p-4 w-1/4 shadow-lg mt-5 mr-5 rounded-15">
+    <div className="bg-lightblue fixed top-16 right-0 p-4 w-1/3 shadow-lg mt-5 mr-5 rounded-15 sm:w-1/35 md:w-1/4 lg:w-1/4">
       <h2 className="text-xl font-bold mb-4 text-background">Indkøbskurv</h2>
       <ul>
         {cartItems.map((item) => (
