@@ -1,20 +1,18 @@
 "use client";
-// Kurv.js
+
 import { useContext, useEffect } from "react";
 import Link from "next/link";
 import { CartContext } from "./CartContext";
 
-const Cart = () => {
+const Kurv = () => {
   const { cartItems } = useContext(CartContext);
   const totalPrice = cartItems.reduce((acc, item) => acc + item.price, 0);
-
 
   const stringifiedCart = JSON.stringify(
     cartItems.map((item) => {
       return { id: item.id };
     })
   );
-
 
   return (
     <div className="bg-lightblue fixed top-16 right-0 p-4 w-1/4 shadow-lg mt-5 mr-5 rounded-15">
@@ -31,10 +29,15 @@ const Cart = () => {
         <h3 className="font-bold text-background mb-5">
           Samlet pris: {totalPrice} kr
         </h3>
-        <Link href={`/payment?cart=${stringifiedCart}`} className="mt-5 border-2 border-background rounded-15 bg-background text-lightblue pr-7 pl-7 p-2 hover:bg-lightblue hover:border-background hover:border-2 hover:text-black">Gå til betaling</Link>
+        <Link
+          href={`/payment?cart=${stringifiedCart}`}
+          className="mt-5 border-2 border-background rounded-15 bg-background text-lightblue pr-7 pl-7 p-2 hover:bg-lightblue hover:border-background hover:border-2 hover:text-black"
+        >
+          Gå til betaling
+        </Link>
       </div>
     </div>
   );
 };
 
-export default Cart;
+export default Kurv;
